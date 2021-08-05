@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LoginPage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        .container {
+
+            align-content: center;
+        }
+
+        .card {
+            width: 350px;
+            border: none;
+            background-color: rgba(224, 224, 224, 0.96);
+            margin-top: auto;
+            margin-bottom: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .card-header {
+            border: none;
+        }
+
+        .card-footer {
+            border: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        h3 {
+            color: #0099CC;
+        }
+
+        body {
+            background: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxNjgyMTM5fHxlbnwwfHx8fA%3D%3D&w=1000&q=80');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Sign In</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i style='font-size:20px;color:#0099CC' class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-lock" style="font-size:20px;color:#0099CC"></i></span>
+                            </div>
+                            <input type="password" name="password" class="form-control" placeholder="password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Login" class="btn btn-primary float-right ">
+                        </div>
+                    </form>
+                    <br><br>
+                    {{mesg}}
+                    <div class="d-flex justify-content-end links">
+                        Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

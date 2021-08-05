@@ -1,0 +1,401 @@
+{% extends 'base1.html' %}
+{% block content %}
+<head>
+	<title>book</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    body{
+    	height: 100vh;
+    	background-color: oldlace;
+
+    }
+    .container{
+    	height: 80%;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	text-align: center;
+    }
+    .image{
+    	width:100%;
+		height:100%;
+    	border-radius: 25px;
+    }
+    @media screen and (max-width: 600px){
+    	.row{
+    		display: flex;
+    		flex-direction: column-reverse;
+    		justify-content: space-around;
+    		align-items: center;
+    		height: 100%;
+    		text-align: center;
+    	}
+    }
+</style>
+<script>
+	var p=0;
+	var s;	
+	var a=[];
+function abc(e){
+		if(p==0){
+			z=e.id;
+			e.style.background="blue";
+			s=z;
+		}
+		if(p%2==0){
+			d=document.getElementById(s);
+			d.style.background="green";
+			e.style.background="blue";
+			var time=e.innerHTML;
+			document.getElementById("text").value=time;
+			time=time.split(/[:-]+/);
+			console.log(time);
+			time="slot_"+time[0]+"_"+time[2];
+			console.log(time);
+			document.getElementById("text1").value=time;
+			p=p+1;
+			s=e.id;
+		}
+		else{
+			document.getElementById("text1").value="";
+			e.style.background="green";
+			p=p+1;
+		}
+	}
+	var c=0;
+	function butn(b,div){
+		c=c+1
+		var y = document.createElement('Button');
+		y.style.margin= "2px";
+		y.type="button";
+		y.style.background = "green";
+		document.getElementById("form").appendChild(y);
+		y.innerHTML=b+"";
+		y.style.color="white";
+		y.id=c;
+		a.push(y.id);
+		y.name=c;
+		console.log(y.name)
+		y.value=c-1;
+		y.addEventListener('click',function() {
+			abc(y);
+		});
+		y.className = "btn";
+	}
+	function butn1(b,div){
+		var y = document.createElement('Button');
+		y.style.background = "grey";
+		y.type="button";
+		document.getElementById("form").appendChild(y);
+		y.innerHTML=b+""
+	}
+	function sel(){
+		for(var i=0;i<a.length;i++){
+			x=document.getElementById(a[i]);
+			x.style.display="none";
+		}
+		a=[];
+		x=document.getElementById('date').value;
+  	document.getElementById("sel_date").value = x;
+  	//document.getElementById("form").appendChild(div);
+  	//div.style.border= "1px solid black";
+  	//div.id=div;
+  	if( x=="Monday"){
+  		{% if mon.slot_9_10 == "1" %}
+				butn("9:00Am-10:00Am");
+			{% endif %} 
+			{% if mon.slot_10_11 == "1" %}
+				butn("10:00Am-11:00Am");
+			{% endif %}
+			{% if mon.slot_11_12 == "1" %}
+				butn("11:00Am-12:00Pm");
+			{% endif %}
+			{% if mon.slot_12_13 == "1" %}
+				butn("12:00Pm-13:00Pm");
+			{% endif %}
+			{% if mon.slot_13_14 == "1" %}
+				butn("13:00Pm-14:00Pm");
+				console.log("13_14")
+			{% endif %}
+			{% if mon.slot_14_15 == "1" %}
+				butn("14:00Pm-15:00Pm");
+			{% endif %}
+			{% if mon.slot_15_16 == "1" %}
+				butn("15:00Pm-16:00Pm");
+			{% endif %}
+			{% if mon.slot_16_17 == "1" %}
+				butn("16:00Pm-17:00Pm");
+			{% endif %}
+			{% if mon.slot_17_18 == "1" %}
+				butn("17:00Pm-18:00Pm");
+			{% endif %}
+			{% if mon.slot_18_19 == "1" %}
+				butn("18:00Pm-19:00Pm");
+			{% endif %}
+			{% if mon.slot_19_20 == "1" %}
+				butn("19:00Pm-20:00Pm");
+			{% endif %}
+			}
+			if( x=="Tuesday"){
+  		{% if tues.slot_9_10 == "1" %}
+				butn("9:00Am-10:00Am");
+			{% endif %} 
+			{% if tues.slot_10_11 == "1" %}
+				butn("10:00Am-11:00Am");
+			{% endif %}
+			{% if tues.slot_11_12 == "1" %}
+				butn("11:00Am-12:00Pm");
+			{% endif %}
+			{% if tues.slot_12_13 == "1" %}
+				butn("12:00Pm-13:00Pm");
+			{% endif %}
+			{% if tues.slot_13_14 == "1" %}
+				butn("13:00Pm-14:00Pm");
+				console.log("13_14")
+			{% endif %}
+			{% if tues.slot_14_15 == "1" %}
+				butn("14:00Pm-15:00Pm");
+			{% endif %}
+			{% if tues.slot_15_16 == "1" %}
+				butn("15:00Pm-16:00Pm");
+			{% endif %}
+			{% if tues.slot_16_17 == "1" %}
+				butn("16:00Pm-17:00Pm");
+			{% endif %}
+			{% if tues.slot_17_18 == "1" %}
+				butn("17:00Pm-18:00Pm");
+			{% endif %}
+			{% if tues.slot_18_19 == "1" %}
+				butn("18:00Pm-19:00Pm");
+			{% endif %}
+			{% if tues.slot_19_20 == "1" %}
+				butn("19:00Pm-20:00Pm");
+			{% endif %}
+			}
+			if( x=="Wednesday"){
+  		{% if wed.slot_9_10 == "1" %}
+				butn("9:00Am-10:00Am");
+			{% endif %} 
+			{% if wed.slot_10_11 == "1" %}
+				butn("10:00Am-11:00Am");
+			{% endif %}
+			{% if wed.slot_11_12 == "1" %}
+				butn("11:00Am-12:00Pm");
+			{% endif %}
+			{% if wed.slot_12_13 == "1" %}
+				butn("12:00Pm-13:00Pm");
+			{% endif %}
+			{% if wed.slot_13_14 == "1" %}
+				butn("13:00Pm-14:00Pm");
+				console.log("13_14")
+			{% endif %}
+			{% if wed.slot_14_15 == "1" %}
+				butn("14:00Pm-15:00Pm");
+			{% endif %}
+			{% if wed.slot_15_16 == "1" %}
+				butn("15:00Pm-16:00Pm");
+			{% endif %}
+			{% if wed.slot_16_17 == "1" %}
+				butn("16:00Pm-17:00Pm");
+			{% endif %}
+			{% if wed.slot_17_18 == "1" %}
+				butn("17:00Pm-18:00Pm");
+			{% endif %}
+			{% if wed.slot_18_19 == "1" %}
+				butn("18:00Pm-19:00Pm");
+			{% endif %}
+			{% if wed.slot_19_20 == "1" %}
+				butn("19:00Pm-20:00Pm");
+			{% endif %}
+			}
+			if( x=="Thursday"){
+  		{% if thur.slot_9_10 == "1" %}
+				butn("9:00Am-10:00Am");
+			{% endif %} 
+			{% if thur.slot_10_11 == "1" %}
+				butn("10:00Am-11:00Am");
+			{% endif %}
+			{% if thur.slot_11_12 == "1" %}
+				butn("11:00Am-12:00Pm");
+			{% endif %}
+			{% if thur.slot_12_13 == "1" %}
+				butn("12:00Pm-13:00Pm");
+			{% endif %}
+			{% if thur.slot_13_14 == "1" %}
+				butn("13:00Pm-14:00Pm");
+				console.log("13_14")
+			{% endif %}
+			{% if thur.slot_14_15 == "1" %}
+				butn("14:00Pm-15:00Pm");
+			{% endif %}
+			{% if thur.slot_15_16 == "1" %}
+				butn("15:00Pm-16:00Pm");
+			{% endif %}
+			{% if thur.slot_16_17 == "1" %}
+				butn("16:00Pm-17:00Pm");
+			{% endif %}
+			{% if thur.slot_17_18 == "1" %}
+				butn("17:00Pm-18:00Pm");
+			{% endif %}
+			{% if thur.slot_18_19 == "1" %}
+				butn("18:00Pm-19:00Pm");
+			{% endif %}
+			{% if thur.slot_19_20 == "1" %}
+				butn("19:00Pm-20:00Pm");
+			{% endif %}
+			}
+			if( x=="Friday"){
+  		{% if fri.slot_9_10 == "1" %}
+				butn("9:00Am-10:00Am");
+			{% endif %} 
+			{% if fri.slot_10_11 == "1" %}
+				butn("10:00Am-11:00Am");
+			{% endif %}
+			{% if fri.slot_11_12 == "1" %}
+				butn("11:00Am-12:00Pm");
+			{% endif %}
+			{% if fri.slot_12_13 == "1" %}
+				butn("12:00Pm-13:00Pm");
+			{% endif %}
+			{% if fri.slot_13_14 == "1" %}
+				butn("13:00Pm-14:00Pm");
+				console.log("13_14")
+			{% endif %}
+			{% if fri.slot_14_15 == "1" %}
+				butn("14:00Pm-15:00Pm");
+			{% endif %}
+			{% if fri.slot_15_16 == "1" %}
+				butn("15:00Pm-16:00Pm");
+			{% endif %}
+			{% if fri.slot_16_17 == "1" %}
+				butn("16:00Pm-17:00Pm");
+			{% endif %}
+			{% if fri.slot_17_18 == "1" %}
+				butn("17:00Pm-18:00Pm");
+			{% endif %}
+			{% if fri.slot_18_19 == "1" %}
+				butn("18:00Pm-19:00Pm");
+			{% endif %}
+			{% if fri.slot_19_20 == "1" %}
+				butn("19:00Pm-20:00Pm");
+			{% endif %}
+			}
+			if( x=="Saturday"){
+  		{% if sat.slot_9_10 == "1" %}
+				butn("9:00Am-10:00Am");
+			{% endif %} 
+			{% if sat.slot_10_11 == "1" %}
+				butn("10:00Am-11:00Am");
+			{% endif %}
+			{% if sat.slot_11_12 == "1" %}
+				butn("11:00Am-12:00Pm");
+			{% endif %}
+			{% if sat.slot_12_13 == "1" %}
+				butn("12:00Pm-13:00Pm");
+			{% endif %}
+			{% if sat.slot_13_14 == "1" %}
+				butn("13:00Pm-14:00Pm");
+				console.log("13_14")
+			{% endif %}
+			{% if sat.slot_14_15 == "1" %}
+				butn("14:00Pm-15:00Pm");
+			{% endif %}
+			{% if sat.slot_15_16 == "1" %}
+				butn("15:00Pm-16:00Pm");
+			{% endif %}
+			{% if sat.slot_16_17 == "1" %}
+				butn("16:00Pm-17:00Pm");
+			{% endif %}
+			{% if sat.slot_17_18 == "1" %}
+				butn("17:00Pm-18:00Pm");
+			{% endif %}
+			{% if sat.slot_18_19 == "1" %}
+				butn("18:00Pm-19:00Pm");
+			{% endif %}
+			{% if sat.slot_19_20 == "1" %}
+				butn("19:00Pm-20:00Pm");
+			{% endif %}
+			}
+			if( x=="Sunday"){
+  		{% if sun.slot_9_10 == "1" %}
+				butn("9:00Am-10:00Am");
+			{% endif %} 
+			{% if sun.slot_10_11 == "1" %}
+				butn("10:00Am-11:00Am");
+			{% endif %}
+			{% if sun.slot_11_12 == "1" %}
+				butn("11:00Am-12:00Pm");
+			{% endif %}
+			{% if sun.slot_12_13 == "1" %}
+				butn("12:00Pm-13:00Pm");
+			{% endif %}
+			{% if sun.slot_13_14 == "1" %}
+				butn("13:00Pm-14:00Pm");
+				console.log("13_14")
+			{% endif %}
+			{% if sun.slot_14_15 == "1" %}
+				butn("14:00Pm-15:00Pm");
+			{% endif %}
+			{% if sun.slot_15_16 == "1" %}
+				butn("15:00Pm-16:00Pm");
+			{% endif %}
+			{% if sun.slot_16_17 == "1" %}
+				butn("16:00Pm-17:00Pm");
+			{% endif %}
+			{% if sun.slot_17_18 == "1" %}
+				butn("17:00Pm-18:00Pm");
+			{% endif %}
+			{% if sun.slot_18_19 == "1" %}
+				butn("18:00Pm-19:00Pm");
+			{% endif %}
+			{% if sun.slot_19_20 == "1" %}
+				butn("19:00Pm-20:00Pm");
+			{% endif %}
+			}
+		}
+	</script>
+	</head>
+<body>
+	<div class="container">
+		<table>
+		<tr>
+		<td>
+		<div class="row">
+		<div class="col">
+		<form  method="POST" action="">
+			{% csrf_token %}
+			{{tr.slot}}
+			<br>
+			<h2>Book a Session</h2>
+			<br>
+			<select class="form-control form-control-lg" id="date" name="day" onchange="sel()">
+				{% for w,d in wd %}
+  			<option value="{{d}}">{{w}}</option>
+  			{% endfor %}
+		</select>
+		<input type="hidden" name="date" id="sel_date">
+		<p id="demo"></p>
+		<input type="text" name="time" class="form-control form-control-lg" id="text" readonly>
+		<input type="hidden" name="time1" class="form-control form-control-lg" id="text1">
+				<br>
+		<div class="form-group">
+            <input type="submit" value="Book" class="btn btn-primary float-right">
+            </div>
+	</form>
+	<div id="form">
+	</div>
+</div>
+<div class="col">
+	<img src="https://cdn.corporatefinanceinstitute.com/assets/Online-Learning.jpeg" class="image" alt="Responsive image">
+	</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+    {% endblock %}
+</body>

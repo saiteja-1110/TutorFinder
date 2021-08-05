@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        @import url('https://rsms.me/inter/inter-ui.css');
+
+        body {
+            align-items: center;
+            background: linear-gradient(-45deg, #210242, #9198e5);
+            display: flex;
+            font-family: 'Inter UI', sans-serif;
+            height: 100vh;
+            justify-content: center;
+            margin: 0;
+            width: 100vw;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            height: 350px;
+            overflow: hidden;
+            padding: 20px;
+            position: relative;
+            width: 400px;
+        }
+
+        .title {
+            font-size: 1.5em;
+            height: 29px;
+            margin-bottom: 0;
+        }
+
+        .text {
+            color: #667;
+            font-size: 1em;
+            height: 38px;
+            margin: 5px 0 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <a href="{% url 'home' %}" style="float: right">Go Back to Home</a>
+        <h2 class="title">ABOUT US</h2>
+        <p class="text"> A platform where parents can find the right tutor for their child and tutors who want to freelance.</p><br>
+        <p class="text">We are waiting for you.</p>
+        <h3 class="title">Our Team</h3>
+        <p class="text">Anvitha Reddy 1602-18-737-007<br>Jason Praneeth 1602-18-737-028<br> Sai Teja 1602-18-737-040</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+{% extends 'base3.html' %}
+{% block content %}
+
+<head>
+	<title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <style>
+    body{
+        background-color: aliceblue;
+    }
+    .container {
+            padding: 6%;
+            width: 100%;
+        }
+         .card {
+            width: 100%;
+        }
+        .card-img-top {
+    		object-fit: cover;
+		}
+        .row {
+            padding: 1%;
+        }
+
+        img {
+            height: 20%;
+        }
+             .name{
+            font-size: 180%;
+            font-weight: 600;
+            color: brown;
+        }
+        .tick{
+            font-weight: bolder;
+            color: green;
+            border: none;
+        }
+        
+</style>
+</head>
+<body>
+    <br>
+	<h1 style="text-align: center; color: rebeccapurple;">Welcome, admin</h1>
+	<div class="container">
+	{% for p in t %}
+        <div class="row">
+            <div class="card mb-3" style="max-width: 900px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://pics.freeicons.io/uploads/icons/png/2985742661548234958-512.png" class="card-img img-fluid" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="card-title">
+                            <div class="row">
+                            <div class="col">
+
+                                <span class="name">{{ p.tutor }}</span>
+                            
+                                {% if p.is_verified == True %}
+                                <span class="badge badge-primary">Verified</span>
+                                <span class="tick">&#10003;</span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                            </div>
+                            <p class="card-text">
+                            	<div class="table">
+                            		<div class="row">
+                            			<div class="col">
+                                			<b>Qualification : </b> {{ p.Highest_Qual }}
+                                		</div>
+                          				<div class="col">
+                                			<b>Eligibility : </b> {{ p.teach }}
+                                		</div>
+                                	</div>
+                                	<div class="row">
+                            			<div class="col">
+                                			 <b>Phone number : </b> {{p.tutor.phn_num}}
+                                		</div>
+                                		<div class="col">
+                                            <b>Rating : </b>{{ p.get_rating }}
+                                        </div>
+                
+                                	
+                                	</div>
+                              
+                                    <div class="row">
+                                        <div class="col">
+                                            <b>Subjects : </b>{{p.subjects}}
+                                        </div>
+                                        <div class="col">
+                                            <b>Experience : </b>{{ p.experience }}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="a">
+                                    <div class="row">
+                                    	<div class="col">
+                        <a href="{{p.mapurl}}" target="_blank" class="btn btn-info succcess">Location</a>
+                      </div>
+                                        <div class="col">
+                                        <a href="{% url 'fulldetails' p.id %}" class="btn btn-info" role="button" id="b1">Full Details</a>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                        		</div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                {% endfor %}
+            </div>
+            {% endblock %}
+	</body>

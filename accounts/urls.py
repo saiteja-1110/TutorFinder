@@ -1,0 +1,25 @@
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('',views.indexView,name="home"),
+    path('register/', views.registerView, name="register"),
+    path('login/', views.loginView, name="login"),
+    path('logout/',views.logoutView,name="logout"),
+    path('mode/display/',views.displayView,name="display"),
+    path('mode/onlinedis/',views.onlinedisView,name="onlinedis"),
+    path('mode/',views.modeView,name="mode"),
+    path('edit_profile',views.profileView,name="edit_profile"),
+    path('tutor/tutoredit_profile',views.tutorprofileView,name="tutoredit_profile"),
+    path('tutor/',views.tutorView,name="tutor"),
+    path('admin1/',views.adminView,name="admin1"),
+    path('admin1/verify/<int:my_id>',views.verify,name="verify"),
+    path('fulldetails/<int:my_id>',views.fulldetailsView,name="fulldetails"),
+    path('mode/onlinedis/book/<int:my_id>',views.bookView,name="book"), 
+    path('handlerequest/',views.handlerequest,name="handlerequest"),
+    path('my_orders/',views.orderView,name="my_orders"),
+    path('about/',views.about,name="about"),
+    path('contact/',views.contact,name="contact"),
+    path('demo/<int:my_id>',views.demoView,name="demo"),
+    path('review/<int:my_id>',views.reviewView,name="review"),
+    path('handlerequest/mode',views.modeView1,name="mode1"),
+]

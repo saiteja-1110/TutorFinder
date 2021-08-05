@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    body{
+        height: 100vh;
+    }
+    .container {
+            height: 90%;
+            padding-top: 7%;
+            text-align: center;
+        }
+    .sub 
+    {
+            margin-top:auto;
+            margin-bottom: auto;
+            height: 100%;
+           
+    }
+         .subject {
+            width: 40%;
+            height: 20%;
+            font-size: 20px;
+            min-height: 72px;
+            min-width: 150px;
+            max-height: 20px;
+            font-weight: bold;
+            color: white;
+            border-style: none;
+            text-decoration: none;
+        }
+        .h1{
+            font-weight:500;
+            font-size: 250%;
+            color: purple;
+        }
+        .p1{
+            font-weight:500;
+            font-size: 150%;
+            margin-top: 20px;
+        }
+        .button {
+            text-align: center;
+        }
+         .para {
+            color: aliceblue;
+        }
+    @media screen and (max-width: 600px){
+        .row{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+        .p1{
+            font-weight:500;
+            font-size: 120%;
+        }
+         .h1{
+            font-weight:500;
+            font-size: 180%;
+            color: purple;
+        }
+
+    }
+</style>
+<script>
+        function parent() {
+            location.href = "register";
+        }
+
+        function tutor() {
+            location.href = "login";
+        }
+
+    </script>
+    </head>
+<body>
+     <nav class="navbar navbar-expand-sm bg-dark text-center">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <h3 class="para">TUTOR FINDER</h3>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <table>
+            <tr>
+                <td>
+                    <div class="row sub">
+                        <div class="col">
+                <img src="https://us.123rf.com/450wm/yopinco/yopinco1903/yopinco190300016/124834388-the-teacher-teaches-a-girl-study.jpg?ver=6" alt="tutorstu" class="img-fluid image">
+            </div>
+                        <div class="col button">
+                             <div>
+                                <span class="h1"><i>A New Way to Connect</i></span>
+                                 <p class="p1">The best platform to help you enhance your skills, expand your knowledge</p>
+                            </div>
+                            <button type="submit" class="btn btn-info subject" value="tutor" id="butn" onclick="tutor()">Login</button>
+                            <br><br><br>
+                            <button type="submit" class="btn btn-info subject" value="parent" id="butn1" onclick="parent()">SignUp</button>
+                </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

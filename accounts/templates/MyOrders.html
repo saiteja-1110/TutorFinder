@@ -1,0 +1,57 @@
+{% extends 'base1.html' %}
+{% block content %}
+
+<head>
+    <title>My Orders</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <style>
+    .h2{
+        color: navy;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h2 class="h2">Previous Orders</h2>
+        <br>
+    <table class="table table-striped">
+  <thead style="color: brown;">
+    <th scope="col">Order Id</th>
+    <th scope="col">Tutor Name</th>
+    <th scope="col">Date</th>
+    <th scope="col">Day</th>
+    <th scope="col">Time Slot</th>
+    <th scope="col">Payment Status</th>
+  </thead>
+  <tbody>
+    {% for i in orders %}
+    <tr>
+      <td scope="row">{{i.id}}</td>
+      <td>{{i.tutor_name}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.day}}</td>
+      <td>{{i.time1}}</td>
+      <td>
+        {% if i.status == "Success" %}
+            <span class="badge badge-success">Success</span>
+        {% endif %}
+        {% if i.status == "Failure" %}
+            <span class="badge badge-danger">Failure</span>
+        {% endif %}
+        {% if i.status == "Pending" %}
+            <span class="badge badge-secondary">Pending</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+    {% endblock %}
+	</body>

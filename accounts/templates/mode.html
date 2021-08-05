@@ -1,0 +1,84 @@
+{% extends 'base1.html' %}
+{% block content %}
+<head>
+    <title>Mode</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    body{
+        height: 100vh;
+    }
+    .container{
+        height: 80%;
+        text-align: center;
+    }
+    .sub {
+            margin-top:auto;
+            margin-bottom: auto;
+            height: 100%;
+        }
+
+        .subject {
+            width: 40%;
+            height: 40%;
+            font-size: 20px;
+            min-height: 40px;
+            min-width:150px;
+            max-height: 110px;
+            font-weight: bold;
+            color: white;
+            background-color: dodgerblue;
+            border-style: none;
+            text-decoration: none;
+        }
+        .para{
+            color: chocolate;
+        }
+    @media screen and (max-width: 800px){
+        .row{
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+        .abc{
+            margin-top: 15%;
+        }
+    }
+</style>
+<script>
+    function mode(){
+        location.href = "display";
+    }
+    function online(){
+        location.href= "onlinedis"
+    }
+</script>
+    </head>
+<body>
+    <div class="container">
+        <table>
+        <tr>
+        <td>
+        <h1>Welcome, {{user.username}}</h1>
+    <h4 class="para">Which mode of tuitions do you prefer?</h4>
+    <br><br>
+    <div class="row sub">
+        <div class="col abc">
+        <button class="subject" id="butn" onclick="mode()">Offline</button><br><br><br>
+        <button class="subject" id="butn1" onclick="online()">Online</button>
+        </div>
+    <div class="col">
+        <img src="https://sedibengster.com/wp-content/uploads/sites/118/2016/08/berkeley-domain-image.jpg" alt="tutorstu" class="img-fluid image">
+    </div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+{% endblock %}
+</body>
